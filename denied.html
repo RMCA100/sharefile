@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Access Denied | ShareFile</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, Helvetica, sans-serif;
+    background: linear-gradient(160deg, #eef0ff 0%, #f5f7fb 45%, #e8eaf6 100%);
+    min-height: 100vh;
+    color: #1f2937;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topbar {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .topbar .mark {
+    width: 30px;
+    height: 30px;
+    background: #6262EF;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 800;
+    font-size: 13px;
+  }
+  .topbar strong {
+    font-size: 15px;
+    color: #111827;
+    font-weight: 650;
+  }
+  .topbar span {
+    font-size: 12px;
+    color: #6b7280;
+    margin-left: auto;
+  }
+
+  .wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 16px 40px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 540px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    box-shadow: 0 16px 48px rgba(98, 98, 239, 0.12);
+    overflow: hidden;
+  }
+
+  .banner {
+    background: linear-gradient(135deg, #3f3f9a 0%, #6262EF 55%, #4F4FE8 100%);
+    color: #fff;
+    padding: 26px 22px 22px;
+    text-align: center;
+  }
+  .icon-circle {
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.16);
+    border: 2px solid rgba(255,255,255,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .banner h1 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .banner p {
+    font-size: 14px;
+    line-height: 1.55;
+    opacity: 0.95;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .body { padding: 22px 22px 10px; }
+
+  .alert {
+    background: #f5f3ff;
+    border: 1px solid #ddd6fe;
+    border-left: 4px solid #6262EF;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 18px;
+  }
+  .alert strong {
+    display: block;
+    color: #3730a3;
+    font-size: 13.5px;
+    margin-bottom: 4px;
+  }
+  .alert p {
+    color: #4338ca;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .section-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6b7280;
+    margin: 6px 0 10px;
+  }
+
+  .meta {
+    background: #f9fafb;
+    border: 1px solid #eef0f3;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+  }
+  .meta-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 7px 0;
+    border-bottom: 1px solid #eef0f3;
+    font-size: 13px;
+  }
+  .meta-row:last-child { border-bottom: none; }
+  .meta-row .k { color: #6b7280; }
+  .meta-row .v {
+    color: #111827;
+    font-weight: 600;
+    text-align: right;
+    word-break: break-word;
+  }
+  .badge {
+    display: inline-block;
+    background: #fee2e2;
+    color: #b91c1c;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 999px;
+  }
+  .badge.ok {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .os-list {
+    list-style: none;
+    margin: 0 0 18px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .os-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-bottom: 1px solid #eef0f3;
+    background: #fff;
+  }
+  .os-list li:last-child { border-bottom: none; }
+  .os-list .win {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: #0078D4;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-weight: 800;
+    font-size: 13px;
+  }
+  .os-list .txt strong {
+    display: block;
+    font-size: 13.5px;
+    color: #111827;
+    margin-bottom: 2px;
+  }
+  .os-list .txt span {
+    font-size: 12px;
+    color: #6b7280;
+  }
+  .os-list .ok-dot {
+    margin-left: auto;
+    font-size: 12px;
+    font-weight: 700;
+    color: #16a34a;
+    white-space: nowrap;
+  }
+
+  .steps {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px 14px 6px;
+    margin-bottom: 18px;
+  }
+  .step {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .step .n {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #6262EF;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step p {
+    font-size: 13px;
+    line-height: 1.45;
+    color: #374151;
+    padding-top: 2px;
+  }
+
+  .note {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: #6b7280;
+    margin-bottom: 8px;
+  }
+
+  .footer {
+    padding: 0 22px 20px;
+    text-align: center;
+  }
+  .footer p {
+    font-size: 11.5px;
+    color: #9ca3af;
+    line-height: 1.45;
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="mark">SF</div>
+    <strong>ShareFile</strong>
+    <span>Secure Document Access</span>
+  </div>
+
+  <div class="wrap">
+    <div class="card">
+      <div class="banner">
+        <div class="icon-circle">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/>
+            <path d="M9 9l6 6M15 9l-6 6"/>
+          </svg>
+        </div>
+        <h1>Access Denied</h1>
+        <p>Your device is not compatible or supported for the intended ShareFile document you are trying to access.</p>
+      </div>
+
+      <div class="body">
+        <div class="alert">
+          <strong>Unsupported client environment detected</strong>
+          <p>
+            This protected ShareFile attachment can only be opened from an approved desktop operating system.
+            Mobile browsers and mobile operating systems are blocked to protect document integrity and recipient authentication.
+          </p>
+        </div>
+
+        <div class="section-title">Session details</div>
+        <div class="meta">
+          <div class="meta-row">
+            <span class="k">Access status</span>
+            <span class="v"><span class="badge">DENIED</span></span>
+          </div>
+          <div class="meta-row">
+            <span class="k">Detected platform</span>
+            <span class="v" id="detectedOs">Mobile device</span>
+          </div>
+          <div class="meta-row">
+            <span class="k">Document type</span>
+            <span class="v">ShareFile Secure Attachment</span>
+          </div>
+          <div class="meta-row">
+            <span class="k">Policy</span>
+            <span class="v">Desktop-only access</span>
+          </div>
+          <div class="meta-row">
+            <span class="k">Reference</span>
+            <span class="v" id="refId">SF-MOBILE-BLOCK</span>
+          </div>
+        </div>
+
+        <div class="section-title">Supported systems</div>
+        <ul class="os-list">
+          <li>
+            <div class="win">W</div>
+            <div class="txt">
+              <strong>Windows 11</strong>
+              <span>Home, Pro, Enterprise, Education</span>
+            </div>
+            <div class="ok-dot">Supported</div>
+          </li>
+          <li>
+            <div class="win">W</div>
+            <div class="txt">
+              <strong>Windows 10</strong>
+              <span>Version 21H2 or later recommended</span>
+            </div>
+            <div class="ok-dot">Supported</div>
+          </li>
+          <li>
+            <div class="win">W</div>
+            <div class="txt">
+              <strong>Windows 8.1</strong>
+              <span>With latest security updates installed</span>
+            </div>
+            <div class="ok-dot">Supported</div>
+          </li>
+          <li>
+            <div class="win" style="background:#107C10;">W</div>
+            <div class="txt">
+              <strong>Windows Server 2019 / 2022</strong>
+              <span>For managed enterprise desktops</span>
+            </div>
+            <div class="ok-dot">Supported</div>
+          </li>
+        </ul>
+
+        <div class="section-title">Not supported</div>
+        <div class="meta" style="margin-bottom:18px;">
+          <div class="meta-row">
+            <span class="k">iOS / iPadOS</span>
+            <span class="v"><span class="badge">Blocked</span></span>
+          </div>
+          <div class="meta-row">
+            <span class="k">Android</span>
+            <span class="v"><span class="badge">Blocked</span></span>
+          </div>
+          <div class="meta-row">
+            <span class="k">Mobile browsers</span>
+            <span class="v"><span class="badge">Blocked</span></span>
+          </div>
+        </div>
+
+        <div class="section-title">How to continue</div>
+        <div class="steps">
+          <div class="step">
+            <div class="n">1</div>
+            <p>Open this same ShareFile link on a <strong>Windows PC or laptop</strong>.</p>
+          </div>
+          <div class="step">
+            <div class="n">2</div>
+            <p>Use a supported browser (Microsoft Edge, Google Chrome, or Mozilla Firefox).</p>
+          </div>
+          <div class="step">
+            <div class="n">3</div>
+            <p>Click <strong>Download ShareFile Documents</strong> to view your secure attachment.</p>
+          </div>
+        </div>
+
+        <p class="note">
+          For security compliance, ShareFile protected attachments are restricted to approved desktop environments to prevent unauthorized mobile capture, incomplete rendering, or insecure forwarding.
+        </p>
+      </div>
+
+      <div class="footer">
+        <p>ShareFile · Citrix Secure Collaboration<br>
+        © 2026 Progress Software. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+
+<script>
+(function () {
+  var ua = navigator.userAgent || '';
+  var label = 'Mobile device';
+
+  if (/iPhone/i.test(ua)) label = 'iPhone (iOS)';
+  else if (/iPad/i.test(ua)) label = 'iPad (iPadOS)';
+  else if (/Android/i.test(ua)) label = 'Android device';
+  else if (/webOS|BlackBerry|IEMobile|Opera Mini/i.test(ua)) label = 'Mobile browser';
+
+  var el = document.getElementById('detectedOs');
+  if (el) el.textContent = label;
+
+  var ref = document.getElementById('refId');
+  if (ref) {
+    var stamp = Date.now().toString(36).toUpperCase().slice(-6);
+    ref.textContent = 'SF-' + stamp;
+  }
+
+  // Desktop users who hit denied.html by mistake → back to index
+  var touch = navigator.maxTouchPoints > 1;
+  var mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|Tablet/i.test(ua)
+            || (/Macintosh/i.test(ua) && touch);
+  if (!mobile) {
+    window.location.replace('index.html' + (window.location.search || ''));
+  }
+})();
+</script>
+</body>
+</html>

