@@ -1,33 +1,212 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ShareFile Documents — Enterprise File Sharing</title><style>
-:root{--ink:#172033;--muted:#6b7280;--line:#e6eaf0;--bg:#f6f8fb;--card:#fff;--accent:#2457d6;--accent2:#173ea5;--ok:#0f8a5f}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.top{height:76px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 5vw}.brand{display:flex;gap:12px;align-items:center}.brand strong{display:block;font-size:16px}.brand span{display:block;color:var(--muted);font-size:12px}.mark{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#5681ee);color:#fff;display:grid;place-items:center;font-weight:800}.top-actions{display:flex;gap:10px}.primary,.ghost{border:0;border-radius:9px;padding:11px 16px;font-weight:700;cursor:pointer}.primary{background:var(--accent);color:#fff}.primary:hover{background:var(--accent2)}.ghost{background:#eef2f7;color:var(--ink)}main{max-width:1250px;margin:0 auto;padding:48px 24px}.hero{display:flex;justify-content:space-between;gap:40px;align-items:end}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--accent);margin:0 0 10px}.hero h1{font-size:42px;line-height:1.08;max-width:720px;margin:0 0 14px;letter-spacing:-.03em}.lead{max-width:690px;color:var(--muted);font-size:16px}.security{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);padding:16px 18px;border-radius:12px;min-width:280px}.security span{color:var(--ok);font-size:22px}.security small{display:block;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:35px 0}.stats>div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px}.stats small{display:block;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.12em}.stats b{display:block;font-size:20px;margin-top:4px}.grid{display:grid;grid-template-columns:2fr 1fr;gap:18px}.panel{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}.panel-head{padding:20px 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}h2{font-size:17px;margin:0}.panel-head p{margin:3px 0 0;color:var(--muted);font-size:12px}.panel-head input{border:1px solid var(--line);border-radius:8px;padding:9px 11px;width:210px}.drop{margin:18px;border:1px dashed #b9c3d4;border-radius:12px;padding:25px;text-align:center;display:grid;gap:5px;cursor:pointer;background:#fbfcfe}.drop:hover{border-color:var(--accent);background:#f7f9ff}.drop span{color:var(--muted);font-size:12px}.upload-icon{font-size:22px;color:var(--accent)}.list{padding:0 18px 18px}.file{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:13px 4px;border-top:1px solid var(--line)}.file-icon{width:40px;height:40px;border-radius:9px;background:#eef3ff;color:var(--accent);display:grid;place-items:center;font-weight:800;font-size:11px}.file-name{font-weight:700}.meta{color:var(--muted);font-size:11px}.actions{display:flex;gap:6px}.smallbtn{border:1px solid var(--line);background:#fff;border-radius:7px;padding:7px 9px;cursor:pointer;font-size:11px}.audit{padding:8px 20px}.event{padding:13px 0;border-bottom:1px solid var(--line)}.event b{font-size:12px}.event span{display:block;color:var(--muted);font-size:11px}.note{margin:18px;background:#f7f9fc;border-radius:10px;padding:14px;font-size:11px;color:var(--muted)}.note b{display:block;color:var(--ink);margin-bottom:4px}.modal{position:fixed;inset:0;background:#10182888;display:grid;place-items:center;padding:20px}.hidden{display:none}.modal-card{width:min(440px,100%);background:#fff;border-radius:14px;padding:28px;position:relative}.close{position:absolute;right:16px;top:12px;border:0;background:none;font-size:24px;cursor:pointer}.modal-card label{display:block;font-weight:700;font-size:12px;margin:15px 0}.modal-card input,.modal-card select{display:block;width:100%;margin-top:6px;padding:11px;border:1px solid var(--line);border-radius:8px}.full{width:100%;margin-top:10px}.result{margin-top:14px;padding:10px;background:#f3f7ff;border-radius:8px;word-break:break-all}.share-page{min-height:100vh;display:grid;place-items:center;padding:20px}.share-card{width:min(460px,100%);background:#fff;border:1px solid var(--line);border-radius:16px;padding:36px;box-shadow:0 12px 45px #18243a12}.share-card h1{margin:5px 0 8px;font-size:30px}.share-card p:not(.eyebrow){color:var(--muted)}.share-card input{width:100%;padding:12px;border:1px solid var(--line);border-radius:9px;margin:15px 0 4px}#err{color:#c24141;margin-top:10px;font-size:12px}@media(max-width:850px){.hero{display:block}.security{margin-top:20px}.grid{grid-template-columns:1fr}.hero h1{font-size:34px}.stats{grid-template-columns:1fr}.top{padding:0 20px}.top-actions .ghost{display:none}.file{grid-template-columns:40px 1fr}.actions{grid-column:2}}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ShareFile Documents — professional document sharing and secure business file workspace.">
+<meta name="robots" content="index,follow">
+<title>ShareFile Documents | Enterprise Document Workspace</title>
+<style>
+:root{
+  --navy:#0b1f3a;--navy2:#102a4d;--blue:#1769e0;--blue2:#0d57c8;
+  --ink:#172033;--muted:#667085;--line:#e4e9f0;--bg:#f5f7fa;--white:#fff;
+  --green:#067647;--greenbg:#ecfdf3;--amber:#b54708;--amberbg:#fffaeb;
+  --red:#b42318;--shadow:0 10px 35px rgba(16,42,77,.08);
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--bg);font:14px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+.topbar{height:34px;background:var(--navy);color:#dce8f8;display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.02em}
+.nav{height:74px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 5%;position:sticky;top:0;z-index:30}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}.brandmark{width:39px;height:39px;border-radius:9px;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:900;position:relative}.brandmark:after{content:"";position:absolute;width:9px;height:9px;background:#4d94ff;border-radius:2px;right:6px;top:6px}.brand strong{display:block;font-size:15px;letter-spacing:-.01em}.brand small{display:block;color:var(--muted);font-size:10px;margin-top:1px}
+.navlinks{display:flex;gap:25px;align-items:center}.navlinks a{color:#475467;text-decoration:none;font-size:13px;font-weight:600}.navlinks a:hover{color:var(--blue)}
+.navright{display:flex;gap:9px;align-items:center}.btn{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:8px;padding:10px 14px;font-weight:700;font-size:12px}.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}.btn.primary:hover{background:var(--blue2)}.btn.dark{background:var(--navy);border-color:var(--navy);color:#fff}.btn.ghost{background:#f7f9fc}
+main{max-width:1280px;margin:auto;padding:42px 24px 70px}
+.hero{background:linear-gradient(135deg,#fff 0%,#f7faff 100%);border:1px solid var(--line);border-radius:18px;padding:52px;display:grid;grid-template-columns:1.45fr .75fr;gap:45px;box-shadow:var(--shadow)}
+.eyebrow{font-size:10px;font-weight:900;letter-spacing:.14em;color:var(--blue);margin:0 0 13px}.hero h1{font-size:46px;line-height:1.06;letter-spacing:-.04em;margin:0 0 17px;max-width:720px}.hero p.lead{font-size:16px;line-height:1.7;color:var(--muted);max-width:680px;margin:0 0 25px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap}.trustline{display:flex;gap:18px;margin-top:23px;color:#667085;font-size:11px}.trustline span:before{content:"✓";color:var(--green);font-weight:900;margin-right:5px}
+.hero-card{align-self:stretch;background:var(--navy);border-radius:15px;color:#fff;padding:27px;box-shadow:0 15px 45px rgba(11,31,58,.2)}.hero-card .secure{display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.13);padding-bottom:20px}.shield{width:37px;height:37px;border-radius:9px;background:#214b7c;display:grid;place-items:center}.hero-card h3{font-size:15px;margin:0}.hero-card small{color:#afc4df}.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:22px}.mini{border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:13px}.mini b{display:block;font-size:16px}.mini span{font-size:10px;color:#afc4df}.section-head{display:flex;align-items:end;justify-content:space-between;margin:42px 0 14px}.section-head h2{font-size:22px;letter-spacing:-.02em;margin:0}.section-head p{color:var(--muted);margin:4px 0 0;font-size:12px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:15px}.stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 19px}.stat small{display:block;color:#7a8699;font-size:9px;font-weight:900;letter-spacing:.13em}.stat b{font-size:19px;display:block;margin-top:5px}.stat em{font-size:10px;color:var(--green);font-style:normal}
+.workspace{display:grid;grid-template-columns:1.85fr .85fr;gap:16px}.panel{background:#fff;border:1px solid var(--line);border-radius:13px;overflow:hidden;box-shadow:0 2px 10px rgba(16,42,77,.025)}.panelhead{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:15px}.panelhead h3{margin:0;font-size:15px}.panelhead p{margin:3px 0 0;color:var(--muted);font-size:11px}.search{width:220px;border:1px solid var(--line);border-radius:8px;padding:9px 11px;outline:none}.search:focus,input:focus,select:focus{border-color:#8cb5f5;box-shadow:0 0 0 3px #1769e012}
+.drop{margin:18px;border:1px dashed #aebbd0;border-radius:11px;background:#fafcff;padding:23px;text-align:center;transition:.15s}.drop:hover{border-color:var(--blue);background:#f7faff}.drop .up{width:36px;height:36px;border-radius:9px;background:#eaf2ff;color:var(--blue);display:grid;place-items:center;margin:0 auto 8px;font-weight:900;font-size:18px}.drop b{font-size:13px}.drop span{display:block;color:var(--muted);font-size:11px;margin-top:3px}.filelist{padding:0 18px 18px}.file{display:grid;grid-template-columns:42px 1fr auto;gap:12px;align-items:center;padding:14px 4px;border-top:1px solid var(--line)}.fileicon{width:40px;height:40px;border-radius:9px;background:#edf3ff;color:var(--blue);display:grid;place-items:center;font-size:9px;font-weight:900}.filename{font-weight:750;font-size:12px}.meta{font-size:10px;color:var(--muted);margin-top:2px}.actions{display:flex;gap:6px}.small{padding:7px 9px;border:1px solid var(--line);background:#fff;border-radius:7px;font-size:10px;font-weight:700}.small:hover{background:#f6f8fb}.badge{display:inline-flex;align-items:center;border-radius:99px;padding:3px 7px;font-size:9px;font-weight:800;margin-left:5px}.badge.green{background:var(--greenbg);color:var(--green)}.badge.amber{background:var(--amberbg);color:var(--amber)}
+.audit{padding:5px 19px 15px}.event{padding:13px 0;border-bottom:1px solid var(--line);display:flex;gap:9px}.dot{width:7px;height:7px;border-radius:50%;background:#4d94ff;margin-top:6px;flex:none}.event b{display:block;font-size:11px;text-transform:capitalize}.event span{font-size:10px;color:var(--muted)}
+.compliance{margin-top:12px;padding:15px 18px;background:#f8fafc;border-top:1px solid var(--line)}.compliance b{font-size:11px}.compliance p{margin:4px 0 0;font-size:10px;color:var(--muted)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.feature{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px}.featureicon{width:34px;height:34px;border-radius:8px;background:#edf3ff;color:var(--blue);display:grid;place-items:center;font-weight:900;margin-bottom:12px}.feature h3{margin:0 0 5px;font-size:13px}.feature p{margin:0;color:var(--muted);font-size:11px;line-height:1.65}
+.footer{background:var(--navy);color:#d7e2f1;margin-top:30px}.footerin{max-width:1280px;margin:auto;padding:34px 24px}.footergrid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:35px}.footer h4{margin:0 0 10px;font-size:11px;color:#fff}.footer a{display:block;color:#aebed2;text-decoration:none;font-size:10px;margin:7px 0}.footer a:hover{color:#fff}.footerbrand{font-size:14px;font-weight:800;color:#fff}.footer p{font-size:10px;color:#aebed2;max-width:310px}.legal{border-top:1px solid rgba(255,255,255,.12);margin-top:25px;padding-top:15px;font-size:9px;color:#91a5bd;display:flex;justify-content:space-between;gap:15px}
+.modalback{position:fixed;inset:0;background:rgba(5,18,35,.62);display:grid;place-items:center;padding:18px;z-index:60}.modal{width:min(520px,100%);background:#fff;border-radius:15px;padding:27px;box-shadow:0 25px 80px rgba(0,0,0,.2);position:relative}.modal h2{margin:0;font-size:19px}.modal .sub{color:var(--muted);font-size:11px}.close{position:absolute;right:15px;top:12px;border:0;background:none;font-size:22px;color:#667085}.formrow{margin-top:15px}.formrow label{display:block;font-size:10px;font-weight:800;margin-bottom:6px}.formrow input,.formrow select,.result input{width:100%;padding:10px 11px;border:1px solid var(--line);border-radius:8px;outline:none}.result{margin-top:14px;background:#f2f6fd;border-radius:9px;padding:12px;font-size:10px;word-break:break-all}.result b{display:block;font-size:11px;margin-bottom:6px}.modalactions{display:flex;justify-content:flex-end;gap:8px;margin-top:20px}
+.toast{position:fixed;right:22px;bottom:22px;background:var(--navy);color:#fff;padding:12px 15px;border-radius:9px;font-size:11px;box-shadow:var(--shadow);z-index:100;transform:translateY(20px);opacity:0;pointer-events:none;transition:.2s}.toast.show{transform:translateY(0);opacity:1}
+@media(max-width:950px){.hero{grid-template-columns:1fr;padding:34px}.hero-card{max-width:550px}.navlinks{display:none}.stats{grid-template-columns:repeat(2,1fr)}.workspace{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr}.footergrid{grid-template-columns:1.5fr 1fr 1fr}}
+@media(max-width:620px){.nav{padding:0 18px}.navright .btn:first-child{display:none}main{padding:24px 13px 45px}.hero{padding:26px 22px}.hero h1{font-size:35px}.trustline{display:block}.trustline span{display:block;margin:6px 0}.stats{grid-template-columns:1fr 1fr}.panelhead{align-items:flex-start;flex-direction:column}.search{width:100%}.file{grid-template-columns:40px 1fr}.actions{grid-column:2}.features{grid-template-columns:1fr}.footergrid{grid-template-columns:1fr 1fr}.legal{display:block}.legal span{display:block;margin-top:6px}}
+</style>
+</head>
+<body>
+<div class="topbar">ShareFile Documents · Professional document workspace · For authorized business use only</div>
 
-</style></head><body>
-<header class="top"><div class="brand"><div class="mark">S</div><div><strong>ShareFile Documents</strong><span>Enterprise document workspace</span></div></div><div class="top-actions"><button class="ghost" onclick="refresh()">Refresh</button><button class="primary" onclick="document.getElementById('files').click()">Upload documents</button></div></header>
-<main><section class="hero"><div><p class="eyebrow">SECURE BUSINESS DOCUMENT SHARING</p><h1>One secure place for every important document.</h1><p class="lead">Upload, organize and share legitimate business PDFs, Word files, Excel workbooks and presentations with controlled access.</p></div><div class="security"><span>✓</span><div><b>Workspace protected</b><small>Private storage · expiring links · audit activity</small></div></div></section>
-<section class="stats"><div><small>DOCUMENTS</small><b id="count">0</b></div><div><small>SUPPORTED FORMATS</small><b>PDF · DOC · XLS · PPT</b></div><div><small>MAX FILE SIZE</small><b>50 MB</b></div></section>
-<section class="grid"><div class="panel"><div class="panel-head"><div><h2>Document library</h2><p>Files available in your workspace</p></div><input id="search" placeholder="Search documents…" oninput="render()"></div><input id="files" type="file" multiple hidden accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.ppt,.pptx" onchange="upload()"><div id="drop" class="drop" onclick="document.getElementById('files').click()"><div class="upload-icon">↑</div><b>Drop business documents here</b><span>PDF, Word, Excel, CSV and PowerPoint · up to 50 MB each</span></div><div id="list" class="list"></div></div>
-<div class="panel side"><div class="panel-head"><div><h2>Security activity</h2><p>Recent workspace events</p></div></div><div id="audit" class="audit"></div><div class="note"><b>Responsible sharing</b><span>Only upload documents you are authorized to store and distribute. Do not use this workspace for illegal, deceptive, or unauthorized content.</span></div></div></section></main>
-<div id="modal" class="modal hidden"><div class="modal-card"><button class="close" onclick="closeModal()">×</button><h2>Create secure share link</h2><p id="shareName"></p><label>Password <input id="password" type="password" placeholder="Optional"></label><label>Link expires <select id="expires"><option value="1">1 day</option><option value="7" selected>7 days</option><option value="14">14 days</option><option value="30">30 days</option></select></label><button class="primary full" onclick="createShare()">Create share link</button><div id="result"></div></div></div>
+<nav class="nav">
+  <a class="brand" href="#top">
+    <div class="brandmark">S</div>
+    <div><strong>ShareFile Documents</strong><small>Enterprise document workspace</small></div>
+  </a>
+  <div class="navlinks">
+    <a href="#workspace">Workspace</a><a href="#security">Security</a><a href="#features">Capabilities</a><a href="#legal">Legal</a>
+  </div>
+  <div class="navright">
+    <button class="btn ghost" onclick="showPolicy('privacy')">Privacy</button>
+    <button class="btn primary" onclick="document.getElementById('files').click()">Upload documents</button>
+  </div>
+</nav>
+
+<main id="top">
+<section class="hero">
+  <div>
+    <p class="eyebrow">BUSINESS DOCUMENT SHARING</p>
+    <h1>A professional workspace for the documents your business depends on.</h1>
+    <p class="lead">Organize legitimate business files, prepare controlled share links, and maintain a clear activity trail from one professional document workspace.</p>
+    <div class="hero-actions">
+      <button class="btn primary" onclick="document.getElementById('files').click()">Start uploading</button>
+      <button class="btn dark" onclick="document.getElementById('workspace').scrollIntoView()">Open workspace</button>
+    </div>
+    <div class="trustline"><span>Controlled sharing</span><span>Activity visibility</span><span>Business-first workflow</span></div>
+  </div>
+  <div class="hero-card" id="security">
+    <div class="secure"><div class="shield">✓</div><div><h3>Workspace controls</h3><small>Designed for responsible business document exchange</small></div></div>
+    <div class="mini-grid">
+      <div class="mini"><b>50 MB</b><span>Maximum file size</span></div>
+      <div class="mini"><b>8 types</b><span>Office document formats</span></div>
+      <div class="mini"><b>Expiring</b><span>Share-link option</span></div>
+      <div class="mini"><b>Audited</b><span>Workspace activity</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-head"><div><h2>Workspace overview</h2><p>Keep your document operation simple, visible and professional.</p></div></div>
+<section class="stats">
+  <div class="stat"><small>DOCUMENTS</small><b id="count">0</b><em>In this browser workspace</em></div>
+  <div class="stat"><small>SUPPORTED</small><b>PDF · DOCX · XLSX</b><em>Plus CSV and PPT files</em></div>
+  <div class="stat"><small>SHARING</small><b>Controlled links</b><em>Password + expiry options</em></div>
+  <div class="stat"><small>ACTIVITY</small><b id="eventCount">0</b><em>Recent workspace events</em></div>
+</section>
+
+<section id="workspace" class="workspace" style="margin-top:15px">
+  <div class="panel">
+    <div class="panelhead"><div><h3>Document library</h3><p>Business documents available to your workspace</p></div><input id="search" class="search" placeholder="Search documents…" oninput="renderDocs()"></div>
+    <input id="files" type="file" multiple hidden accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.ppt,.pptx" onchange="uploadFiles()">
+    <div id="drop" class="drop" onclick="document.getElementById('files').click()">
+      <div class="up">↑</div><b>Upload business documents</b>
+      <span>Drop files here or click to browse · PDF, Word, Excel, CSV and PowerPoint · 50 MB each</span>
+    </div>
+    <div id="list" class="filelist"></div>
+  </div>
+
+  <aside class="panel">
+    <div class="panelhead"><div><h3>Activity & governance</h3><p>Recent workspace events</p></div></div>
+    <div id="audit" class="audit"></div>
+    <div class="compliance"><b>Responsible document use</b><p>Upload and share only legitimate documents you are authorized to store and distribute. This workspace is not intended for unlawful, deceptive, abusive or unauthorized content.</p></div>
+  </aside>
+</section>
+
+<div class="section-head" id="features"><div><h2>Enterprise-ready capabilities</h2><p>A clean operating layer for professional document exchange.</p></div></div>
+<section class="features">
+  <div class="feature"><div class="featureicon">↗</div><h3>Controlled sharing</h3><p>Create dedicated share links with optional passwords and configurable expiration windows.</p></div>
+  <div class="feature"><div class="featureicon">▣</div><h3>Document library</h3><p>Search and manage common business formats without cluttering the working interface.</p></div>
+  <div class="feature"><div class="featureicon">✓</div><h3>Activity visibility</h3><p>Keep a lightweight record of uploads, shares and deletions for operational awareness.</p></div>
+  <div class="feature"><div class="featureicon">⌁</div><h3>Professional workflow</h3><p>Built around business documents, internal teams, clients, vendors and controlled exchanges.</p></div>
+  <div class="feature"><div class="featureicon">!</div><h3>Usage boundaries</h3><p>Clear responsible-use language helps establish an appropriate business document-sharing purpose.</p></div>
+  <div class="feature"><div class="featureicon">□</div><h3>Responsive experience</h3><p>Designed to remain usable on desktop, tablet and mobile screens.</p></div>
+</section>
+</main>
+
+<footer class="footer" id="legal">
+  <div class="footerin">
+    <div class="footergrid">
+      <div><div class="footerbrand">ShareFile Documents</div><p>Professional document sharing for legitimate business files and operational workflows.</p></div>
+      <div><h4>PRODUCT</h4><a href="#workspace">Workspace</a><a href="#features">Capabilities</a><a href="#" onclick="showPolicy('terms');return false">Terms of Use</a></div>
+      <div><h4>LEGAL</h4><a href="#" onclick="showPolicy('privacy');return false">Privacy Policy</a><a href="#" onclick="showPolicy('cookies');return false">Cookie Policy</a><a href="#" onclick="showPolicy('acceptable');return false">Acceptable Use</a></div>
+      <div><h4>DOCUMENTS</h4><a href="#" onclick="document.getElementById('files').click();return false">Upload a document</a><a href="#workspace">Document library</a><a href="#security">Security controls</a></div>
+    </div>
+    <div class="legal"><span>© 2026 ShareFile Documents. All rights reserved.</span><span>Enterprise document workspace · Authorized business use</span></div>
+  </div>
+</footer>
+
+<div id="shareModal" class="modalback hidden"><div class="modal">
+  <button class="close" onclick="closeModal()">×</button><h2>Create secure share link</h2><div class="sub" id="shareName"></div>
+  <div class="formrow"><label>LINK PASSWORD <input id="sharePassword" type="password" placeholder="Optional password"></label></div>
+  <div class="formrow"><label>LINK EXPIRATION <select id="expires"><option value="1">1 day</option><option value="7" selected>7 days</option><option value="14">14 days</option><option value="30">30 days</option></select></label></div>
+  <div class="modalactions"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="createShare()">Create share link</button></div>
+  <div id="shareResult"></div>
+</div></div>
+
+<div id="policyModal" class="modalback hidden"><div class="modal">
+  <button class="close" onclick="closePolicy()">×</button><h2 id="policyTitle"></h2>
+  <div id="policyBody" class="sub" style="font-size:12px;line-height:1.75;margin-top:12px"></div>
+  <div class="modalactions"><button class="btn primary" onclick="closePolicy()">Close</button></div>
+</div></div>
+<div id="toast" class="toast"></div>
+
 <script>
+const $=id=>document.getElementById(id);
+let docs=JSON.parse(localStorage.getItem("sfd_enterprise_docs")||"[]");
+let audit=JSON.parse(localStorage.getItem("sfd_enterprise_audit")||"[]");
+let selected=null;
 
-let docs = JSON.parse(localStorage.getItem('sfd_docs') || '[]');
-let audit = JSON.parse(localStorage.getItem('sfd_audit') || '[]');
-let selected = null;
-const $ = id => document.getElementById(id);
-const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const fmt = n => n > 1048576 ? (n/1048576).toFixed(1)+' MB' : Math.max(1,Math.round(n/1024))+' KB';
-function save(){localStorage.setItem('sfd_docs',JSON.stringify(docs));localStorage.setItem('sfd_audit',JSON.stringify(audit));}
-function addAudit(event){audit.unshift({event,created_at:new Date().toISOString()});audit=audit.slice(0,50);save();}
-function refresh(){ $('count').textContent=docs.length; render(); $('audit').innerHTML=audit.slice(0,8).map(x=>`<div class="event"><b>${esc(x.event.replaceAll('_',' '))}</b><span>${new Date(x.created_at).toLocaleString()}</span></div>`).join('')||'<div class="event"><span>No activity yet.</span></div>'; }
-function render(){const q=($('search').value||'').toLowerCase();const rows=docs.filter(d=>d.name.toLowerCase().includes(q));$('list').innerHTML=rows.map(d=>{const ext=d.name.split('.').pop().toUpperCase();return `<div class="file"><div class="file-icon">${ext.slice(0,4)}</div><div><div class="file-name">${esc(d.name)}</div><div class="meta">${fmt(d.size)} · ${new Date(d.created_at).toLocaleDateString()} · ${esc(d.folder||'Business Documents')}</div></div><div class="actions"><button class="smallbtn" onclick="share('${d.id}')">Share</button><button class="smallbtn" onclick="delDoc('${d.id}')">Delete</button></div></div>`}).join('')||'<div class="file"><div></div><div><b>No documents found</b><div class="meta">Upload your first business document above.</div></div></div>'}
-async function upload(){const files=[...$('files').files]; if(!files.length)return; for(const f of files){if(f.size>50*1024*1024){alert(`${f.name} exceeds the 50 MB limit.`);continue;} docs.unshift({id:crypto.randomUUID(),name:f.name,size:f.size,created_at:new Date().toISOString(),folder:'Business Documents'});addAudit('document_uploaded');} $('files').value='';save();refresh();}
-function share(id){selected=docs.find(d=>d.id===id);$('shareName').textContent=selected.name;$('password').value='';$('result').innerHTML='';$('modal').classList.remove('hidden')}
-function closeModal(){$('modal').classList.add('hidden')}
-function createShare(){const token=crypto.randomUUID().replaceAll('-','');const url=location.href.split('#')[0]+'#share='+token; $('result').innerHTML=`<b>Share link created</b><br><input value="${esc(url)}" readonly onclick="this.select()">`;addAudit('share_link_created');}
-function delDoc(id){if(!confirm('Delete this document?'))return;docs=docs.filter(d=>d.id!==id);addAudit('document_deleted');save();refresh()}
-$('drop').addEventListener('dragover',e=>{e.preventDefault();$('drop').style.borderColor='var(--accent)'});
-$('drop').addEventListener('dragleave',()=>{$('drop').style.borderColor='#b9c3d4'});
-$('drop').addEventListener('drop',e=>{e.preventDefault();$('drop').style.borderColor='#b9c3d4';const dt=e.dataTransfer;const input=$('files');try{input.files=dt.files;upload()}catch(_){[...dt.files].forEach(f=>docs.unshift({id:crypto.randomUUID(),name:f.name,size:f.size,created_at:new Date().toISOString(),folder:'Business Documents'}));save();refresh()}});
-refresh();
-
-</script></body></html>
+const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt=n=>n>=1048576?(n/1048576).toFixed(1)+" MB":Math.max(1,Math.round(n/1024))+" KB";
+function save(){localStorage.setItem("sfd_enterprise_docs",JSON.stringify(docs));localStorage.setItem("sfd_enterprise_audit",JSON.stringify(audit));}
+function toast(msg){$("toast").textContent=msg;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),2400)}
+function addAudit(event,detail){audit.unshift({event,detail,at:new Date().toISOString()});audit=audit.slice(0,40);save();}
+function ext(name){return name.split(".").pop().toUpperCase()}
+function renderDocs(){
+  const q=($("search").value||"").toLowerCase();
+  const rows=docs.filter(d=>d.name.toLowerCase().includes(q));
+  $("count").textContent=docs.length;
+  $("eventCount").textContent=audit.length;
+  $("list").innerHTML=rows.map(d=>`
+    <div class="file">
+      <div class="fileicon">${escapeHTML(ext(d.name).slice(0,4))}</div>
+      <div><div class="filename">${escapeHTML(d.name)} <span class="badge green">Business file</span></div>
+      <div class="meta">${fmt(d.size)} · ${new Date(d.at).toLocaleDateString()} · ${escapeHTML(d.folder||"Business Documents")}</div></div>
+      <div class="actions"><button class="small" onclick="openShare('${d.id}')">Share</button><button class="small" onclick="deleteDoc('${d.id}')">Delete</button></div>
+    </div>`).join("") || `<div class="file"><div></div><div><div class="filename">No documents in this workspace</div><div class="meta">Upload your first authorized business document to begin.</div></div></div>`;
+  $("audit").innerHTML=audit.slice(0,9).map(a=>`
+    <div class="event"><div class="dot"></div><div><b>${escapeHTML(a.event.replaceAll("_"," "))}</b><span>${escapeHTML(a.detail||"Workspace activity")} · ${new Date(a.at).toLocaleString()}</span></div></div>
+  `).join("") || `<div class="event"><div class="dot"></div><div><span>No activity recorded yet.</span></div></div>`;
+}
+function uploadFiles(){
+  const files=[...$("files").files];
+  let added=0;
+  for(const f of files){
+    if(f.size>50*1024*1024){toast(f.name+" exceeds the 50 MB limit.");continue}
+    const allowed=["PDF","DOC","DOCX","XLS","XLSX","CSV","PPT","PPTX"];
+    if(!allowed.includes(ext(f.name))){toast(f.name+" is not a supported business format.");continue}
+    docs.unshift({id:(crypto.randomUUID?crypto.randomUUID():Date.now()+"-"+Math.random()),name:f.name,size:f.size,at:new Date().toISOString(),folder:"Business Documents"});
+    addAudit("document_uploaded",f.name);added++;
+  }
+  $("files").value="";save();renderDocs();if(added)toast(added+" document"+(added>1?"s":"")+" added to the workspace.");
+}
+function openShare(id){selected=docs.find(d=>d.id===id);if(!selected)return;$("shareName").textContent=selected.name;$("sharePassword").value="";$("shareResult").innerHTML="";$("shareModal").classList.remove("hidden")}
+function closeModal(){$("shareModal").classList.add("hidden")}
+function createShare(){
+  if(!selected)return;
+  const token=(crypto.randomUUID?crypto.randomUUID():Date.now()+"-"+Math.random()).replaceAll("-","");
+  const days=+$("expires").value;
+  const expires=new Date(Date.now()+days*86400000).toISOString();
+  const link=location.href.split("#")[0]+"#shared="+token;
+  selected.share={token,expires,passwordProtected:!!$("sharePassword").value};
+  save();addAudit("share_link_created",selected.name+" · expires in "+days+" day"+(days>1?"s":""));renderDocs();
+  $("shareResult").innerHTML=`<div class="result"><b>Secure share link created</b><input value="${escapeHTML(link)}" readonly onclick="this.select()"><div style="margin-top:6px;color:#667085">Expires ${new Date(expires).toLocaleString()}${selected.share.passwordProtected?" · password protected":""}</div></div>`;
+  toast("Share link created");
+}
+function deleteDoc(id){const d=docs.find(x=>x.id===id);if(!d)return;if(!confirm("Delete this document from the local workspace?"))return;docs=docs.filter(x=>x.id!==id);addAudit("document_deleted",d.name);save();renderDocs();toast("Document removed")}
+const policies={
+privacy:["Privacy Policy","ShareFile Documents should be configured to collect only information necessary to operate the document service. In this single-file demonstration, document metadata is stored locally in the browser. A production deployment should publish its actual data-retention, processing, access-control, subprocessors and deletion practices before accepting confidential documents."],
+cookies:["Cookie Policy","This single-file interface does not require advertising cookies. Browser localStorage is used for the demonstration workspace. A production service should disclose any authentication, security, analytics or preference cookies it actually deploys."],
+terms:["Terms of Use","Use this service only for legitimate, authorized business documents. You must have the rights and permissions necessary to upload, store and share each document. Do not use the service for unlawful, deceptive, abusive, fraudulent or unauthorized activity. Production terms should be reviewed and replaced with the operator's actual legal terms."],
+acceptable:["Acceptable Use","The workspace is intended for legitimate business documents such as contracts, invoices, reports, spreadsheets, presentations and other authorized operational records. Prohibited use includes unlawful content, malicious files, unauthorized disclosure of third-party information, impersonation, fraud, abuse, and attempts to bypass access controls."]
+};
+function showPolicy(key){const p=policies[key]||policies.privacy;$("policyTitle").textContent=p[0];$("policyBody").textContent=p[1];$("policyModal").classList.remove("hidden")}
+function closePolicy(){$("policyModal").classList.add("hidden")}
+$("drop").addEventListener("dragover",e=>{e.preventDefault();$("drop").style.borderColor="#1769e0"});
+$("drop").addEventListener("dragleave",()=>{$("drop").style.borderColor="#aebbd0"});
+$("drop").addEventListener("drop",e=>{e.preventDefault();$("drop").style.borderColor="#aebbd0";const files=[...e.dataTransfer.files];const dt=new DataTransfer();files.forEach(f=>dt.items.add(f));$("files").files=dt.files;uploadFiles()});
+renderDocs();
+</script>
+</body>
+</html>
