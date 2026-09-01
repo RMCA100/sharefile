@@ -40,7 +40,7 @@
 </head>
 <body class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center p-4 overflow-hidden">
     <div id="app" class="relative">
-        <img src="./sharefile-logo-nav.svg" style="display: block; margin: 0 auto; border-radius: 1px; width: 150px;" alt="ShareFile" />
+        <img src="./sharefile-logo-nav.svg" style="display: block; margin: 0 auto; border-radius: 20px;" alt="ShareFile" /><br/>
 
         <div id="downloader" class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full relative">
             <h2 class="text-3xl text-blue-900 mb-6 text-center">ShareFile Attachments</h2>
